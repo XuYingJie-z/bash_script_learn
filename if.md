@@ -33,6 +33,8 @@ int1 -le int2　　　　int1小于等于int2为真 <br>
 
 3. 文件的判断
 
+` if [ ! -f "/usr/bin/svnserve" ] `  注意签好的空格，此处语句为判断文件是否存在
+
 -r file　　　　　用户可读为真 <br>
 -w file　　　　　用户可写为真 <br>
 -x file　　　　　用户可执行为真  <br>
@@ -42,4 +44,22 @@ int1 -le int2　　　　int1小于等于int2为真 <br>
 -b file　　　　　文件为块特殊文件为真 <br>
 -s file　　　　　文件大小非0时为真  <br>
 -t file　　　　　当文件描述符(默认为1)指定的设备为终端时为真 <br>
+
+4. 多个条件并列,及分支语句,&&为并，||为或
+
+```bash
+#!/bin/bash
+read -p "请输入考试成绩：" insert 
+if [ $insert -ge 85 ] && [ $insert -le 100 ]  <!--85~100分，优秀-->
+  then
+    echo "恭喜您考试成绩为优秀！！！"
+elif [ $insert -ge 70 ] && [ $insert -le 84 ] <!--70~84分，合格-->
+  then
+    echo "恭喜您考试成绩为合格！！！"
+else     <!--其他分数，不合格-->
+    echo "很遗憾您考试成绩可以收拾收拾回家种苞米了！！！"
+fi      <!--if语句结束-->
+
+```
+
 
